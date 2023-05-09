@@ -3,10 +3,10 @@
 
   programs.git = {
     enable = true;
-    userEmail = "github@notohh.dev";
-    userName = "notohh";
+    userEmail = "alexander@sellstrom.me";
+    userName = "Alexander Sellström";
     signing = {
-      key = "BD47506D475EE86D";
+      key = "5A7CD3A160BF31A35F70E0FDD9586DF88DAC5A9B";
       signByDefault = true;
     };
     ignores = ["*result*" ".direnv" "node_modules"];

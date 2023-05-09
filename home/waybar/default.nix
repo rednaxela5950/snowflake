@@ -37,7 +37,7 @@ in {
           "custom/wlogout"
         ];
         "image/nixos" = {
-          path = "/home/notoh/snowflake/home/waybar/assets/nixos.png";
+          path = "/home/cellis/snowflake/home/waybar/assets/nixos.png";
           size = 24;
         };
         "user" = {

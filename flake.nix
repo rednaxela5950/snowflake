@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
+      url = "github:nixos/nixpkgs/nixos-22.11";
     };
     hyprland = {
       url = "github:hyprwm/Hyprland";
@@ -48,6 +48,26 @@
     deploy = import ./hosts/deploy.nix inputs;
     formatter.${system} = pkgs.alejandra;
     nixosConfigurations = {
+      cumputer = lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./hosts/cumputer
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = {inherit inputs;};
+              users.cellis = {
+                imports = [
+                  hyprland.homeManagerModules.default
+                  ./hosts/cumputer/home.nix
+                ];
+              };
+            };
+          }
+        ];
+      };
       tsuki = lib.nixosSystem {
         inherit system;
         modules = [
